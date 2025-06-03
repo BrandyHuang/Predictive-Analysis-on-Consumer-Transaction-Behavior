@@ -97,7 +97,20 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 - Processed ~37K clean messages using DistilBERT embeddings
 - Clustered messages using HDBSCAN
 - Found 3 major semantic groups: Food/Drink, Transportation, Bills & Utilities
-![Examle of result](Screenshot/Topic_Clusters.png)
+#### Topic Clusters Discovered with DistilBERT + HDBSCAN
+
+##### Cluster 0: Transportation
+- **Top Keywords:** uber, uberz, ubers, ubered, uberrr, uber
+- **Top Messages:** uber, uber, uber, 🚖🚗, uber
+
+##### Cluster 1: Food/Drink
+- **Top Keywords:** food, groceries, foods, snacks, sandwich, for, food., beverages, pancakes, sandwiches
+- **Top Messages:** food, food, food, food
+
+##### Cluster 2: Bills & Utilities
+- **Top Keywords:** rent, and, rent., rents
+- **Top Messages:** rent, rent, rent, 🏡💸 rent
+
 
 ### 4. **Social Network Analysis**
 - Constructed undirected graph from transaction pairs
@@ -136,7 +149,26 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 - Features:
   - Recency (days since last transaction)
   - Frequency (30 / tx count per month)
+  #### Sample of Recency-Frequency Data with Target Variable `Y`
+
+| user | month | recency | frequency | Y |
+|------|--------|---------|-----------|---|
+| 28   | 0      | 8       | 15.0      | 2 |
+| 31   | 0      | 11      | 30.0      | 1 |
+| 34   | 1      | 15      | 30.0      | 5 |
+| 34   | 0      | 9       | 30.0      | 5 |
+| 34   | 3      | 6       | 30.0      | 5 |
+| 34   | 2      | 5       | 30.0      | 5 |
+| 34   | 4      | 16      | 30.0      | 5 |
+| 108  | 0      | 4       | 30.0      | 1 |
+| 126  | 11     | 22      | 30.0      | 2 |
+| 126  | 0      | 4       | 30.0      | 2 |
+
+  - User profile (percentage of transactions each topic)
   - Social metrics (friends, friends-of-friends, PageRank)
+  
+
+ 
 - Models:
   - Model A: Recency + Frequency (baseline)
   - Model B: Model A + Behavioral Profile
