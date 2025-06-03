@@ -13,7 +13,17 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 ---
 
 ## Dataset Summary
-- ~1.8M transaction messages (sender, receiver, text, timestamp)
+- ~1.8M transaction messages (users (sender), users (receiver), description, timestamp)
+### Sample Simulated Venmo Transactions
+
+| user1 | user2 | description              | timestamp           |
+|--------|--------|--------------------------|----------------------|
+| 1001   | 1023   | 🍕 dinner for last night | 2025-04-20T19:32:11 |
+| 1005   | 1010   | rent 🏡💸                | 2025-05-01T08:10:44 |
+| 1002   | 1011   | uber split 🚗🚕          | 2025-05-03T22:45:19 |
+| 1007   | 1003   | drinks 🍻🍷              | 2025-04-29T21:08:03 |
+| 1008   | 1022   | 🧁🧁 for your birthday!   | 2025-05-02T13:27:50 |
+
 - Word and emoji dictionaries for semantic classification
 - Social network: users connected via transaction pairs
 - Derived user features (recency, frequency, spending profiles)
