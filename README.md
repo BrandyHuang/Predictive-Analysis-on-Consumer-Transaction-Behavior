@@ -36,9 +36,9 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 ### 1. **Text Classification**
 - Used word and emoji dictionaries to categorize Venmo transaction messages
 - Classified 32% of messages as emoji-only (e.g., 🍕💸🎉)
-### Emoji Usage Summary
+#### Emoji Usage Summary
 
-#### Top 5 Uncategorized Emojis (None category)
+##### Top 5 Uncategorized Emojis (None category)
 
 | Emoji | Description         | Count   |
 |-------|---------------------|---------|
@@ -52,7 +52,7 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 
 ---
 
-#### Top 5 Emojis Overall
+##### Top 5 Emojis Overall
 
 | Emoji Name      | Count    |
 |-----------------|----------|
@@ -64,7 +64,7 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 
 ---
 
-#### Top 3 Emoji Categories (excluding None)
+##### Top 3 Emoji Categories (excluding None)
 
 | Category | Count     |
 |----------|-----------|
@@ -116,8 +116,8 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 - Constructed undirected graph from transaction pairs
 - Computed:
   - Friends and friends-of-friends
-  - Clustering coefficients
-  - PageRank (via NetworkX)
+  - Clustering coefficients(how tightly connected a user’s friends are to each other?/If I’m connected to 5 friends, how many of them are also friends with each other?)
+  - PageRank (User's influence in the network)(via NetworkX)
 #### Sample of User Social Network Metrics (Top 20 Rows)
 
 | user  | month | num_friends | num_fof | Links | clustering_coeff     | pagerank           |
