@@ -36,14 +36,15 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 ### 1. **Text Classification**
 - Used word and emoji dictionaries to categorize Venmo transaction messages
 - Classified 32% of messages as emoji-only (e.g., 🍕💸🎉)
+ ![Examle of result](Screenshot/Emoji_topic_count.png)
+
 - Built user profiles by aggregating category proportions across messages
-![Examle of result](Screenshot/Emoji_topic_count.png)
 
 ### 2. **Spending Profile Analysis**
 - Built static and dynamic profiles to track category usage over time
 - Applied Spark window functions to calculate monthly cumulative category shares
 - Found user behavior stabilizes around month 6–8
-![Examle of result](Screenshot/user_profile.png)
+![Examle of result](Screenshot/use_profile.png)
 
 ### 3. **Topic Discovery with DistilBERT**
 - Processed ~37K clean messages using DistilBERT embeddings
