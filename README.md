@@ -14,7 +14,7 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 
 ## Dataset Summary
 - ~1.8M transaction messages (users (sender), users (receiver), description, timestamp)
-### Sample Simulated Venmo Transactions
+### Sample Simulated Venmo Transactions Data Set Demo 
 
 | user1 | user2 | description              | timestamp           |
 |--------|--------|--------------------------|----------------------|
