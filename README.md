@@ -36,15 +36,62 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
 ### 1. **Text Classification**
 - Used word and emoji dictionaries to categorize Venmo transaction messages
 - Classified 32% of messages as emoji-only (e.g., 🍕💸🎉)
- ![Examle of result](Screenshot/Emoji_topic_count.png)
+### Emoji Usage Summary
 
-- Built user profiles by aggregating category proportions across messages
+#### Top 5 Uncategorized Emojis (None category)
+
+| Emoji | Description         | Count   |
+|-------|---------------------|---------|
+| 💸    | Money With Wings    | 124,727 |
+| 🏠    | House               | 65,987  |
+| ❤️    | Red Heart           | 56,701  |
+| 🏡    | House with Garden   | 30,932  |
+| 💰    | Money Bag           | 28,303  |
+
+**Percent of Emoji-Only Transactions**: `32.35%`
+
+---
+
+#### Top 5 Emojis Overall
+
+| Emoji Name      | Count    |
+|-----------------|----------|
+| PizzaSlice      | 215,039  |
+| BeerMugs        | 145,233  |
+| MoneyWithWings  | 124,727  |
+| WineGlass       | 111,157  |
+| PartyPopper     | 94,327   |
+
+---
+
+#### Top 3 Emoji Categories (excluding None)
+
+| Category | Count     |
+|----------|-----------|
+| Food     | 1,744,262 |
+| People   | 787,257   |
+| Activity | 405,737   |
+
 
 ### 2. **Spending Profile Analysis**
 - Built static and dynamic profiles to track category usage over time
 - Applied Spark window functions to calculate monthly cumulative category shares
 - Found user behavior stabilizes around month 6–8
-![Examle of result](Screenshot/use_profile.png)
+#### Sample of User Spending Profiles (Top 10 Rows)
+
+| user1 | Category         | Percentage |
+|-------|------------------|------------|
+| 3     | Food             | 33.33%     |
+| 3     | People           | 33.33%     |
+| 3     | Utility          | 33.33%     |
+| 4     | Activity         | 33.33%     |
+| 4     | Food             | 33.33%     |
+| 4     | Illegal/Sarcasm  | 16.67%     |
+| 4     | Travel           | 16.67%     |
+| 10    | Activity         | 10.00%     |
+| 10    | Food             | 60.00%     |
+| 10    | People           | 20.00%     |
+
 
 ### 3. **Topic Discovery with DistilBERT**
 - Processed ~37K clean messages using DistilBERT embeddings
@@ -58,7 +105,31 @@ Retail and financial tech platforms thrive on understanding customer lifetime va
   - Friends and friends-of-friends
   - Clustering coefficients
   - PageRank (via NetworkX)
-![Examle of result](Screenshot/user_social_network.png)
+#### Sample of User Social Network Metrics (Top 20 Rows)
+
+| user  | month | num_friends | num_fof | Links | clustering_coeff     | pagerank           |
+|-------|--------|--------------|---------|--------|------------------------|---------------------|
+| 228   | 12     | 1            | 6       | 0      | 0.0                    | 7.13513906105113E-8 |
+| 22300 | 12     | 3            | 9       | 1      | 0.3333333333333333     | 1.8042555253639523E-7 |
+| 759   | 12     | 2            | 3       | 1      | 1.0                    | 1.998681312031587E-7 |
+| 39199 | 12     | 1            | 4       | 0      | 0.0                    | 8.097788004547867E-8 |
+| 648   | 12     | 5            | 4       | 0      | 0.0                    | 6.374378901631915E-7 |
+| 22793 | 12     | 1            | -1      | 0      | 0.0                    | 1.435516964442576E-7 |
+| 1670  | 12     | 1            | -1      | 0      | 0.0                    | 4.720642325378472E-7 |
+| 211   | 12     | 1            | 3       | 0      | 0.0                    | 8.488874357040234E-8 |
+| 361   | 12     | 3            | 11      | 1      | 0.3333333333333333     | 2.416788176150701E-7 |
+| 23692 | 12     | 1            | 3       | 0      | 0.0                    | 1.200865152947155E-7 |
+| 767   | 12     | 7            | 26      | 0      | 0.0                    | 1.3743696008690011E-6 |
+| 4765  | 12     | 3            | 12      | 0      | 0.0                    | 2.563064630069924E-7 |
+| 1229  | 12     | 3            | 9       | 0      | 0.0                    | 2.588663009505788E-7 |
+| 24114 | 12     | 1            | 1       | 0      | 0.0                    | 8.063871944398949E-7 |
+| 4     | 12     | 2            | -1      | 0      | 0.0                    | 1.3261968263811799E-6 |
+| 2833  | 12     | 7            | 34      | 5      | 0.23809523809523808    | 2.1584133243722262E-7 |
+| 382   | 12     | 3            | 5       | 0      | 0.0                    | 3.312731456405945E-7 |
+| 24883 | 12     | 1            | -1      | 0      | 0.0                    | 3.312731456405945E-7 |
+| 791   | 12     | 1            | -1      | 0      | 0.0                    | 3.312731456405945E-7 |
+| 5295  | 12     | 1            | -1      | 0      | 0.0                    | 3.312731456405945E-7 |
+
 
 ### 5. **Predictive Modeling (MLlib)**
 - Target: total number of transactions in a user’s first 12 months
